@@ -1,21 +1,28 @@
-﻿@{
+﻿@model insurance_premium_calculator.ViewModels.InsuranceViewModel
+@{
     ViewBag.Title = "Calculate";
+    }
 }
 
-<div class="container">
-    @using (Html.BeginForm())
-    {
-        <div class="form-group">
-            <label for="age">Age</label>
-            <input type="number" class="form-control" id="age">
-        </div>
-        <div class="form-group">
-            <label for="gender">Gender</label>
-            <select class="form-control" id="gender">
-                <option>Male</option>
-                <option>Female</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    }
-</div>
+<h2> Calculate Insurance </h2>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" name="age" asp-for="age" value="@ViewBag.age"/>
+    </div>
+
+    <div class="form-group">
+        <label for="gender">Gender</label>
+        <select class="form-control" name="gender" asp-for="gender">
+            <option value="male" selected='@(ViewBag.gender == "male")'>Male</option>
+            <option value="female" selected='@(ViewBag.gender == "female")'>Female</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Calculate</button>
+}
+
+<hr/>
+<p> Your premium is <b>@ViewBag.premium</b></p>
