@@ -37,6 +37,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="fit, Version=2.7.6776.35866, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FitSharp.2.7.0\lib\net452\fit.dll</HintPath>
+    </Reference>
+    <Reference Include="fitSharp, Version=2.7.6776.35865, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FitSharp.2.7.0\lib\net452\fitSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework">
       <HintPath>..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
@@ -94,6 +100,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalcPremiumFixture.cs" />
     <Compile Include="InsuranceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
