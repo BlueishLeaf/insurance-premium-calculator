@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace insurance_premium_calculator.lib
+﻿namespace insurance_premium_calculator.lib
 {
     public class InsuranceService
     {
