@@ -42,7 +42,6 @@ namespace insurance_premium_calculator.Tests
         {
             driver = new ChromeDriver(@"C:\Users\dmanf\Source\Repos\insurance-premium-calculator\insurance-premium-calculator.Tests\chromeDriver\");
             driver.Url = "http://localhost:53533";
-            driver.Manage().Window.Maximize();
         }
 
         [TestCase(19, "apache helicopter", ExpectedResult = 0)]
@@ -54,6 +53,9 @@ namespace insurance_premium_calculator.Tests
         [TestCase(20, "female", ExpectedResult = 5)]
         public double test(int age, string gender)
         {
+            int Age = age;
+            string Ginger = gender;
+
             //Cut random 0 off end
             string ageAsString = age.ToString();
 
@@ -61,15 +63,15 @@ namespace insurance_premium_calculator.Tests
             var ageElement = driver.FindElement(By.Name("age"));
             var genderElement = new SelectElement(driver.FindElement(By.Name("gender")));
             var submitButton = driver.FindElement(By.Name("submitButton"));
-            var resultElement = driver.FindElement(By.Name("result"));
 
             //Set values
             genderElement.SelectByValue(gender);
+            ageElement.Click();
             ageElement.SendKeys(ageAsString);
             submitButton.Click();
 
             //Get result
-            double result = double.Parse(resultElement.Text);
+            double result = double.Parse(driver.FindElement(By.Name("result")).Text);
 
             //var result = resultElement.Text();
             return result;
