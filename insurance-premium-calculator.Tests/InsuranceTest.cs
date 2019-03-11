@@ -37,11 +37,17 @@ namespace insurance_premium_calculator.Tests
     {
         IWebDriver driver;
 
-        [SetUp]
+        [OneTimeSetUp]
         public void startBrowser()
         {
-            driver = new ChromeDriver(@"C:\Users\dmanf\Source\Repos\insurance-premium-calculator\insurance-premium-calculator.Tests\chromeDriver\");
+            driver = new ChromeDriver(@"C:\Users\Dman-PC\Source\Repos\insurance-premium-calculator\insurance-premium-calculator.Tests\chromeDriver\");
             driver.Url = "http://localhost:53533";
+        }
+
+        [OneTimeTearDown]
+        public void closeBrowser()
+        {
+            driver.Quit();
         }
 
         [TestCase(19, "apache helicopter", ExpectedResult = 0)]
@@ -53,16 +59,16 @@ namespace insurance_premium_calculator.Tests
         [TestCase(20, "female", ExpectedResult = 5)]
         public double test(int age, string gender)
         {
-            int Age = age;
-            string Ginger = gender;
-
-            //Cut random 0 off end
+            //Age to string
             string ageAsString = age.ToString();
-
+            
             //Get elements
             var ageElement = driver.FindElement(By.Name("age"));
             var genderElement = new SelectElement(driver.FindElement(By.Name("gender")));
             var submitButton = driver.FindElement(By.Name("submitButton"));
+
+            //Clear age element
+            ageElement.Clear();
 
             //Set values
             genderElement.SelectByValue(gender);
@@ -75,12 +81,6 @@ namespace insurance_premium_calculator.Tests
 
             //var result = resultElement.Text();
             return result;
-        }
-
-        [TearDown]
-        public void closeBrowser()
-        {
-            driver.Close();
         }
     }
 }
