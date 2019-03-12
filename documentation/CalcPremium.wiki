@@ -1,15 +1,15 @@
 ---
-Help: Black Box test cases for CalcPremium function
+Help: White Box test cases for CalcPremium function
 Test
 ---
 !define COMMAND_PATTERN {%m -r fitnesse.fitserver.FitServer,fitsharp\build\debug\fit.dll %p}
 !define TEST_RUNNER {fitsharp\build\debug\Runner.exe}
-!path D:\repos\insurance-premium-calculator\insurance-premium-calculator.Tests\bin\Debug\insurance-premium-calculator.Tests.dll
+!path C:\Users\killi\Documents\repos\insurance-premium-calculator\insurance-premium-calculator.Tests\bin\Debug\insurance-premium-calculator.Tests.dll
 
 !| insurance_premium_calculator.Tests.CalcPremiumFixture |
 | age | gender | premium? |
 | 17 | male | 0 |
 | 18 | female | 5.0 |
-| 200 | male | 2.5 |
-| 30 | male | 6.0 |
+| 49 | male | 5 |
+| 50 | female | 1.75 |
 | 60 | apple | 0 |
