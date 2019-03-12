@@ -14,11 +14,7 @@ namespace insurance_premium_calculator.Tests
     public class InsuranceTest
     {
         private static InsuranceService _testObj;
-
-        public InsuranceTest()
-        {
-            _testObj = new InsuranceService();
-        }
+        public InsuranceTest() => _testObj = new InsuranceService();
 
         [TestCase(19, "apache helicopter", ExpectedResult = 0)]
         [TestCase(10, "male", ExpectedResult = 0)]
@@ -27,10 +23,7 @@ namespace insurance_premium_calculator.Tests
         [TestCase(10, "female", ExpectedResult = 0)]
         [TestCase(35, "female", ExpectedResult = 3.5)]
         [TestCase(20, "female", ExpectedResult = 5)]
-        public double TestCalcPremium(int a, string b)
-        {
-            return _testObj.CalcPremium(a, b);
-        }
+        public double TestCalcPremium(int a, string b) => _testObj.CalcPremium(a, b);
     }
     [TestClass]
     public class EndToEndTest
