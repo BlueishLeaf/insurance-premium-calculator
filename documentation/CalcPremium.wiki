@@ -1,5 +1,5 @@
 ---
-Help: White Box test cases for CalcPremium function
+Help: Black Box test cases for CalcPremium function
 Test
 ---
 !define COMMAND_PATTERN {%m -r fitnesse.fitserver.FitServer,fitsharp\build\debug\fit.dll %p}
